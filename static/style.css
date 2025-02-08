@@ -1,0 +1,326 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow-x: auto; /* Ensure horizontal scrolling for tables if needed */
+}
+
+/* Welcome Section */
+.welcome-section {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    background: linear-gradient(45deg, rgba(106, 17, 203, 0.6), rgba(37, 117, 252, 0.6));
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Keyframe Animation for Gradient Background */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Text Styling for Welcome Section */
+.welcome-section h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.welcome-section p {
+    font-size: 1.5em;
+    margin-top: 15px;
+    animation: fadeIn 2s ease;
+}
+
+/* Flashing effect for a more dynamic look */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.welcome-section .action-btn {
+    margin-top: 30px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    background-color: #fff;
+    color: #6a11cb;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.welcome-section .action-btn:hover {
+    background-color: #6a11cb;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(106, 17, 203, 0.4);
+}
+
+/* Add particles effect */
+.welcome-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://cdn.pixabay.com/photo/2017/08/30/01/57/abstract-2695566_960_720.jpg'); /* Example particle background */
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    animation: moveParticles 30s linear infinite;
+}
+
+@keyframes moveParticles {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+}
+
+/* Header */
+h1, h2, h3 {
+    color: #222;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #6a11cb;
+    background-color: #eef3ff;
+    box-shadow: 0 0 6px rgba(106, 17, 203, 0.5);
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background-color: #6a11cb;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(106, 17, 203, 0.2);
+}
+
+button:hover {
+    background-color: #5a0fb4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(106, 17, 203, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(106, 17, 203, 0.2);
+}
+
+button.submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+}
+
+/* Flash Messages */
+.flash-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+.flash-message.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.flash-message.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.flash-message.warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+th {
+    background-color: #6a11cb;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f9f9f9;
+    word-break: break-word;
+}
+
+tr:nth-child(even) td {
+    background-color: #eef3ff;
+}
+
+td a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Table */
+.container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #6a11cb;
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Links */
+a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #6a11cb;
+    color: white;
+}
+
+/* Back Button Styling */
+a.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+a.back-btn:hover {
+    text-decoration: underline;
+} 

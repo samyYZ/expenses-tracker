@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker Dashboard</h1>
+        <div class="actions">
+            <a href="/add_user">Add User</a>
+            <a href="/add_expenses">Add Expenses</a>
+            <form method="POST" action="/delete_all_users" style="display:inline;">
+                <button type="submit">Delete All Users</button>
+            </form>
+        </div>
+
+        <h2>Users</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Income</th>
+                    <th>Expense Limit</th>
+                    <th>Total Expenses</th>
+                    <th>Actions</th>
+                    <th>View Expenses</th>
+                    <th>Add Expenses</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.income }}</td>
+                    <td>{{ user.expense_limit }}</td>
+                    <td>{{ user.total_expenses }}</td>
+                    <td>
+                        <form method="POST" action="/delete_user/{{ user.id }}" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a href="/view_expenses/{{ user.id }}">View Expenses</a>
+                    </td>
+                    <td>
+                        <a href="/add_expenses/{{ user.id }}">Add Expenses</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7">No users available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Error or Success Messages -->
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p class="{{ message.category }}">{{ message.text }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

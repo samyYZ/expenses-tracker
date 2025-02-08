@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Expenses</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Expenses for {{ user.name }}</h1>
+
+    <!-- Display a warning if the user's total expenses exceed the limit -->
+    {% set total_expenses = user.total_expenses %}
+    {% if total_expenses >= user.expense_limit %}
+    <div style="color: red; font-weight: bold; margin-bottom: 20px;">
+        Warning: You have reached your expense limit!
+    </div>
+    {% endif %}
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Expense Name</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in user.expenses %}
+            <tr>
+                <td>{{ expense.name }}</td>
+                <td>{{ expense.amount }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2">No expenses recorded for this user.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
+

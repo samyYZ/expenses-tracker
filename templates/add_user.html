@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Add User</title>
+</head>
+<body>
+    <div class="container">
+        <div class="add-user-container">
+            <h2>Add User</h2>
+            <form method="POST" action="/add_user">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="income">Income:</label>
+                    <input type="number" id="income" name="income" placeholder="Enter monthly income" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense_limit">Expense Limit:</label>
+                    <input type="number" id="expense_limit" name="expense_limit" placeholder="Enter expense limit" required>
+                </div>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
